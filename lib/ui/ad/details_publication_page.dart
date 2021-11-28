@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:halal_flutter/common/dialog/add_comment_dialog.dart';
 import 'package:halal_flutter/components/button_submit.dart';
+import 'package:halal_flutter/ui/home/chat/conversation_page.dart';
+import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailsPublicationPage extends StatefulWidget {
   const DetailsPublicationPage({Key? key}) : super(key: key);
@@ -26,7 +29,7 @@ class _DetailsPublicationPageState extends State<DetailsPublicationPage> {
                       context: context,
                       builder: (BuildContext context) {
                         return AddCommentDialog(
-                          title: "Hello World !!!",
+                          title: "Add a comment",
                         );
                       })
                 },
@@ -43,7 +46,6 @@ class _DetailsPublicationPageState extends State<DetailsPublicationPage> {
                 ),
               ),
             )
-
           ],
         ),
       ),
@@ -61,8 +63,8 @@ class _DetailsPublicationPageState extends State<DetailsPublicationPage> {
               child: Stack(children: [
                 Align(
                   alignment: Alignment.topLeft,
-                  child:GestureDetector(
-                    onTap: (){
+                  child: GestureDetector(
+                    onTap: () {
                       Navigator.pop(context);
                     },
                     child: Image.asset(
@@ -70,7 +72,7 @@ class _DetailsPublicationPageState extends State<DetailsPublicationPage> {
                       width: 60,
                       height: 60,
                     ),
-                  ) ,
+                  ),
                 ),
                 Align(
                   alignment: Alignment.topRight,
@@ -96,174 +98,199 @@ class _DetailsPublicationPageState extends State<DetailsPublicationPage> {
                 alignment: Alignment.topLeft,
                 child: Container(
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Dutch sheep",
-                          style:
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Dutch sheep",
+                      style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                        ),
-                        SizedBox(height: 10,),
-                        Text(
-                          "Sheep",
-                          style: TextStyle(fontSize: 12),
-                        ),
-                        SizedBox(height: 10,),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "Sheep",
+                      style: TextStyle(fontSize: 12),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Row(
-                              children: [
-                                Icon(Icons.location_on_outlined, color: Colors.grey, size: 14.0),
-                                Text(
-                                  "Makkah",
-                                  style:
+                            Icon(Icons.location_on_outlined,
+                                color: Colors.grey, size: 14.0),
+                            Text(
+                              "Makkah",
+                              style:
                                   TextStyle(fontSize: 12, color: Colors.grey),
-                                )
-                              ],
-                            ),
-                            Row(
-                              children: const [
-                                Icon(Icons.access_time, color: Colors.grey, size: 14.0),
-                                Text(
-                                  "16 hours ago",
-                                  style:
-                                  TextStyle(fontSize: 12, color: Colors.grey),
-                                )
-                              ],
-                            ),
+                            )
                           ],
                         ),
-                        Container(
-                          width: double.infinity,
-                          margin: const EdgeInsets.symmetric(vertical: 10),
-                          padding: const EdgeInsets.all(5.0),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(Radius.circular(5.0) //
-                              ),
-                              border: Border.all(color: Colors.grey)),
-                          child: const Text(
-                              'Lorem Ipsum has been and remains the standard for formal text'),
-                        ),
-                        Container(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                height: 80,
-                                width: MediaQuery.of(context).size.width*0.5,
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(vertical: 10),
-                                  child: Row(
-                                    children: <Widget>[
-                                      ClipOval(
-                                        child: Image.network(
-                                          "https://via.placeholder.com/140x100",
-                                          height: 50,
-                                          width: 50,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                      Container(
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: <Widget>[
-                                            Container(
-                                              margin: const EdgeInsets.fromLTRB(5, 0, 0, 0),
-                                              child: Container(
-                                                margin: EdgeInsets.only(top:10),
-                                                child: const Text(
-                                                  "Moussa Riadh",
-                                                  textDirection: TextDirection.ltr,
-                                                  textAlign: TextAlign.start,
-                                                  style: TextStyle(
-                                                      fontWeight: FontWeight.bold, fontSize: 14),
-                                                ),
-                                              ),
-                                            ),
-                                            Row(
-                                              children: [
-                                                Container(
-                                                  margin: const EdgeInsets.fromLTRB(5, 0, 0, 0),
-                                                  child: Column(
-                                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                                    children: [
-                                                      Row(
-                                                        children: [
-                                                          Icon(
-                                                            Icons.star,
-                                                            color: Colors.yellow[800],
-                                                            size: 15,
-                                                          ),
-                                                          Icon(
-                                                            Icons.star,
-                                                            color: Colors.yellow[800],
-                                                            size: 15,
-                                                          ),
-                                                          Icon(
-                                                            Icons.star,
-                                                            color: Colors.yellow[800],
-                                                            size: 15,
-                                                          ),
-                                                          const Icon(
-                                                            Icons.star,
-                                                            color: Colors.grey,
-                                                            size: 15,
-                                                          ),
-                                                          const Icon(
-                                                            Icons.star,
-                                                            color: Colors.grey,
-                                                            size: 15,
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            )
-                                          ],
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-
-                              ),
-                              Row(
-                                children: [
-                                  Image.asset(
-                                    'images/call_btn.png',
-                                    width: 60,
-                                    height: 60,
-                                  ),
-                                  Image.asset(
-                                    'images/chat_btn.png',
-                                    width: 60,
-                                    height: 60,
-                                  )
-                                ],
-                              )
-
-                            ],
-                          ),
-                        ),
                         Row(
-                          children: [
-                            Row(
-                              children: const [
-                                Text(
-                                  "Comments (41)",
-                                  style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),
-                                ),
-
-                              ],
-                            ),
-
+                          children: const [
+                            Icon(Icons.access_time,
+                                color: Colors.grey, size: 14.0),
+                            Text(
+                              "16 hours ago",
+                              style:
+                                  TextStyle(fontSize: 12, color: Colors.grey),
+                            )
                           ],
                         ),
                       ],
-                    )),
+                    ),
+                    Container(
+                      width: double.infinity,
+                      margin: const EdgeInsets.symmetric(vertical: 10),
+                      padding: const EdgeInsets.all(5.0),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(5.0) //
+                              ),
+                          border: Border.all(color: Colors.grey)),
+                      child: const Text(
+                          'Lorem Ipsum has been and remains the standard for formal text'),
+                    ),
+                    Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            height: 80,
+                            width: MediaQuery.of(context).size.width * 0.5,
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(vertical: 10),
+                              child: Row(
+                                children: <Widget>[
+                                  ClipOval(
+                                    child: Image.network(
+                                      "https://via.placeholder.com/140x100",
+                                      height: 50,
+                                      width: 50,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  Container(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Container(
+                                          margin: const EdgeInsets.fromLTRB(
+                                              5, 0, 0, 0),
+                                          child: Container(
+                                            margin: EdgeInsets.only(top: 10),
+                                            child: const Text(
+                                              "Moussa Riadh",
+                                              textDirection: TextDirection.ltr,
+                                              textAlign: TextAlign.start,
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 14),
+                                            ),
+                                          ),
+                                        ),
+                                        Row(
+                                          children: [
+                                            Container(
+                                              margin: const EdgeInsets.fromLTRB(
+                                                  5, 0, 0, 0),
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Row(
+                                                    children: [
+                                                      Icon(
+                                                        Icons.star,
+                                                        color:
+                                                            Colors.yellow[800],
+                                                        size: 15,
+                                                      ),
+                                                      Icon(
+                                                        Icons.star,
+                                                        color:
+                                                            Colors.yellow[800],
+                                                        size: 15,
+                                                      ),
+                                                      Icon(
+                                                        Icons.star,
+                                                        color:
+                                                            Colors.yellow[800],
+                                                        size: 15,
+                                                      ),
+                                                      const Icon(
+                                                        Icons.star,
+                                                        color: Colors.grey,
+                                                        size: 15,
+                                                      ),
+                                                      const Icon(
+                                                        Icons.star,
+                                                        color: Colors.grey,
+                                                        size: 15,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          Row(
+                            children: [
+                              GestureDetector(
+                                onTap: () =>
+                                    {UrlLauncher.launch("tel://21213123123")},
+                                child: Image.asset(
+                                  'images/call_btn.png',
+                                  width: 60,
+                                  height: 60,
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: () => {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            ConversationPage()),
+                                  )
+                                },
+                                child: Image.asset(
+                                  'images/chat_btn.png',
+                                  width: 60,
+                                  height: 60,
+                                ),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Row(
+                          children: const [
+                            Text(
+                              "Comments (41)",
+                              style: TextStyle(
+                                  fontSize: 14, fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                )),
               ),
             )
           ],

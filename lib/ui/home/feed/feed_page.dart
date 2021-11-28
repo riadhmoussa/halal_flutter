@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:halal_flutter/common/dialog/region_list_dialog.dart';
 import 'package:halal_flutter/common/dialog/tick_option_dialog.dart';
 import 'package:halal_flutter/components/drop_down_input.dart';
 import 'package:halal_flutter/components/input_search.dart';
@@ -84,14 +85,20 @@ class _FeedPageState extends State<FeedPage> {
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 20),
                   child: Row(
-                    children: const <Widget>[
+                    children:  <Widget>[
                       Flexible(
                         flex: 2,
                         child: InputSearch(),
                       ),
                       Flexible(
                         flex: 1,
-                        child: DropDownInput(),
+                        child: DropDownInput(onPressed:(){
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return RegionListDialog();
+                              });
+                        }),
                       ),
                     ],
                   ),

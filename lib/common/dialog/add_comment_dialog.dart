@@ -63,9 +63,15 @@ class _AddCommentDialogState extends State<AddCommentDialog> {
                 Container(
                   margin: EdgeInsets.all(10),
                   child: TextField(
+                      textInputAction: TextInputAction.newline,
+                      keyboardType: TextInputType.multiline,
+                      minLines: null,
+                      maxLines: null,  // If this is null, there is no limit to the number of lines, and the text container will start with enough vertical space for one line and automatically grow to accommodate additional lines as they are entered.
+                      expands: true,
+
+
                       style: TextStyle(
                           fontSize: 12.0,
-                          height:8,
                           color: Colors.black
                       ),
                       onChanged: (text) => {

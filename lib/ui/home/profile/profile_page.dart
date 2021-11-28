@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:halal_flutter/common/app_bar/second_custom_bar.dart';
+import 'package:halal_flutter/common/dialog/confirmation_dialog.dart';
 import 'package:halal_flutter/components/item_setting.dart';
 import 'package:halal_flutter/helper/shared_preferences.dart';
 import 'package:halal_flutter/models/user.dart';
@@ -119,8 +120,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 onPressed: () => {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => ClaimsPage()),
+                    MaterialPageRoute(builder: (context) => ClaimsPage()),
                   )
                 },
               ),
@@ -141,8 +141,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 onPressed: () => {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => ContactUsPage()),
+                    MaterialPageRoute(builder: (context) => ContactUsPage()),
                   )
                 },
               ),
@@ -161,15 +160,23 @@ class _ProfilePageState extends State<ProfilePage> {
                 onPressed: () => {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => BanksAccountPage()),
+                    MaterialPageRoute(builder: (context) => BanksAccountPage()),
                   )
                 },
               ),
               ItemSetting(
                 title: "Logout",
-                onPressed: () => {},
+                onPressed: () => {
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return ConfirmationDialog();
+                      })
+                },
               ),
+              SizedBox(
+                height: 50,
+              )
             ],
           ),
         )));

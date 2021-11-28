@@ -32,7 +32,7 @@ class _ItemAdState extends State<ItemAd> {
             child: Material(
               elevation: 10,
               clipBehavior: Clip.antiAlias,
-              borderRadius: BorderRadius.all(Radius.circular(10)),
+              borderRadius: BorderRadius.all(Radius.circular(5)),
               child: Container(
                 width: MediaQuery.of(context).size.width*0.85,
                 child: Container(

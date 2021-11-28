@@ -4,8 +4,10 @@ class ButtonSubmit extends StatefulWidget {
   final String nameButton;
   final VoidCallback onPressed;
   final bool enabled;
+  final bool redButton;
   const ButtonSubmit({Key? key , this.nameButton = "",
     required this.onPressed,
+    this.redButton = false,
     required this.enabled}) : super(key: key);
 
   @override
@@ -25,7 +27,7 @@ class _ButtonSubmitState extends State<ButtonSubmit> {
         ),
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 10.0),
-          primary: widget.enabled ? Colors.green : Colors.green.shade300,
+          primary: widget.enabled ? widget.redButton==true?Colors.red: Colors.green : Colors.green.shade300,
         ),
         onPressed: widget.enabled ? widget.onPressed : null,
       ),
