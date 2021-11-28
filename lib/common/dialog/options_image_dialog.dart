@@ -3,12 +3,10 @@ import 'package:halal_flutter/components/button_submit.dart';
 import 'package:halal_flutter/components/white_submit_button.dart';
 
 class OptionsImageDialog extends StatefulWidget {
-  final String title, descriptions, text;
-  final Image? img;
   final VoidCallback onPressedGallery;
   final VoidCallback onPressedCamera;
 
-  const OptionsImageDialog({Key? key, this.title="", this.descriptions="", this.text="", this.img,required this.onPressedCamera,required this.onPressedGallery}) : super(key: key);
+  const OptionsImageDialog({Key? key,required this.onPressedCamera,required this.onPressedGallery}) : super(key: key);
 
   @override
   _OptionsImageDialogState createState() => _OptionsImageDialogState();

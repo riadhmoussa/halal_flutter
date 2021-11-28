@@ -5,6 +5,7 @@ import 'package:halal_flutter/common/app_bar/third_custom_bar.dart';
 import 'package:halal_flutter/common/dialog/options_image_dialog.dart';
 import 'package:halal_flutter/components/button_submit.dart';
 import 'package:halal_flutter/components/input_edit.dart';
+import 'package:halal_flutter/helper/camera_tools.dart';
 import 'package:halal_flutter/helper/shared_preferences.dart';
 import 'package:halal_flutter/models/user.dart';
 import 'package:image_picker/image_picker.dart';
@@ -24,32 +25,7 @@ class _EditProfileState extends State<EditProfile> {
   String email = "";
   String imageProfile = "https://via.placeholder.com/140x100";
 
-  _getFromGallery() async {
-    PickedFile? pickedFile = await ImagePicker().getImage(
-      source: ImageSource.gallery,
-      maxWidth: 1800,
-      maxHeight: 1800,
-    );
-    if (pickedFile != null) {
-      File imageFile = File(pickedFile.path);
-      print("image path");
-      print(imageFile.path);
-    //  File imageFile = File(pickedFile.path);
-    }
-  }
 
-  _getFromCamera() async {
-    PickedFile? pickedFile = await ImagePicker().getImage(
-      source: ImageSource.camera,
-      maxWidth: 1800,
-      maxHeight: 1800,
-    );
-    if (pickedFile != null) {
-      File imageFile = File(pickedFile.path);
-      print("image path");
-      print(imageFile.path);
-    }
-  }
 
   @override
   void initState() {
@@ -100,13 +76,11 @@ class _EditProfileState extends State<EditProfile> {
                             context: context,
                             builder: (BuildContext context) {
                               return OptionsImageDialog(
-                                title:
-                                    "You must agree to the terms and conditions",
                                 onPressedCamera: ()=>{
-                                  _getFromCamera()
+                                  CameraTools.getFromCamera()
                                 },
                                 onPressedGallery: ()=>{
-                                  _getFromGallery()
+                                  CameraTools.getFromGallery()
                                 },
                               );
                             });
