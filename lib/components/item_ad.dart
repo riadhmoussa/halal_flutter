@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:halal_flutter/ui/ad/details_publication_page.dart';
 import 'package:halal_flutter/ui/auth/views/register_page.dart';
 
 class ItemAd extends StatefulWidget {
@@ -22,7 +23,7 @@ class _ItemAdState extends State<ItemAd> {
         onTap: () => {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const RegisterPage()),
+                MaterialPageRoute(builder: (context) => const DetailsPublicationPage()),
               )
             },
         child: Container(

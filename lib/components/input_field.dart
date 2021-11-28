@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class InputField extends StatefulWidget {
   final String label;
   final bool showIcon;
-  const InputField({Key? key,required this.label,this.showIcon=false}) : super(key: key);
+  final bool showLabel;
+  const InputField({Key? key,required this.label,this.showIcon=false,this.showLabel=true}) : super(key: key);
 
   @override
   _InputFieldState createState() => _InputFieldState();
@@ -14,6 +15,9 @@ class _InputFieldState extends State<InputField> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        Visibility(
+            visible: widget.showLabel,
+            child:
         Container(
             margin: EdgeInsets.symmetric(horizontal: 25,vertical: 5),
             child:  Align(
@@ -23,7 +27,7 @@ class _InputFieldState extends State<InputField> {
                 textAlign: TextAlign.end,
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
               ),
-            )),
+            ))),
         Material(
           elevation:10 ,
           clipBehavior: Clip.antiAlias,

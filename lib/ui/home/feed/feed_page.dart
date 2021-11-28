@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:halal_flutter/common/dialog/tick_option_dialog.dart';
 import 'package:halal_flutter/components/drop_down_input.dart';
 import 'package:halal_flutter/components/input_search.dart';
 import 'package:halal_flutter/components/item_ad.dart';
@@ -26,11 +27,29 @@ class _FeedPageState extends State<FeedPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text(
-                        "English",
-                        textAlign: TextAlign.start,
-                        style: TextStyle(fontSize: 15),
-                      ),
+                       GestureDetector(
+                         onTap: (){
+                           showDialog(
+                               context: context,
+                               builder: (BuildContext context) {
+                                 return TickOptionsDialog(
+                                   title:
+                                   "You must agree to the terms and conditions",
+                                   onPressedArabic: ()=>{
+
+                                   },
+                                   onPressedEnglish: ()=>{
+
+                                   },
+                                 );
+                               });
+                         },
+                         child: Text(
+                           "English",
+                           textAlign: TextAlign.start,
+                           style: TextStyle(fontSize: 15),
+                         ),
+                       ),
                       Center(
                           child: Image.asset('images/icon.png',
                               width: 75, height: 40, fit: BoxFit.fill)),
@@ -63,6 +82,21 @@ class _FeedPageState extends State<FeedPage> {
                   ),
                 ),
                 Container(
+                  margin: EdgeInsets.symmetric(horizontal: 20),
+                  child: Row(
+                    children: const <Widget>[
+                      Flexible(
+                        flex: 2,
+                        child: InputSearch(),
+                      ),
+                      Flexible(
+                        flex: 1,
+                        child: DropDownInput(),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
                   margin: EdgeInsets.only(left: 15),
                   child: SizedBox(
                     height: 60,
@@ -81,6 +115,7 @@ class _FeedPageState extends State<FeedPage> {
                     ),
                   ),
                 ),
+                SizedBox(height: 10,),
                 Expanded(
                   child: ListView(
                     children: [

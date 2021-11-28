@@ -30,6 +30,29 @@ class _AddAdPageState extends State<AddAdPage> {
               InputField(label:"Category",showIcon: true,),
               InputField(label:"Type",showIcon: true,),
               InputField(label:"Publication details"),
+              Container(
+                margin: EdgeInsets.only(left: 25),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child:Column(
+                    crossAxisAlignment:CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      SizedBox(height: 10,),
+                      Text("Pictures (0)",style: TextStyle(fontWeight: FontWeight.bold),),
+                      SizedBox(height: 10,),
+                      Image.asset('images/add_image.png',
+                          width: 75, height: 75, fit: BoxFit.fill),
+                      SizedBox(height: 10,),
+                      Text("Video",style: TextStyle(fontWeight: FontWeight.bold),),
+                      SizedBox(height: 10,),
+                      Image.asset('images/add_image.png',
+                          width: 75, height: 75, fit: BoxFit.fill)
+                    ],
+                  ) ,
+                ),
+              )              ,
               CheckboxListTile(
                 checkColor: Colors.white,
                 activeColor: Colors.green,

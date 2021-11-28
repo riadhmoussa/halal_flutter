@@ -85,6 +85,17 @@ flutter:
     - images/menu_speaker_icon.png
     - images/menu_user_green.png
     - images/menu_user_icon.png
+    - images/check_icon.png
+    - images/selected_like_icon.png
+    - images/like_button.png
+    - images/send_message_icon.png
+    - images/report_icon.png
+    - images/share_icon.png
+    - images/white_back_icon.png
+    - images/selected_like_icon.png
+    - images/call_btn.png
+    - images/chat_btn.png
+    - images/add_image.png
 
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

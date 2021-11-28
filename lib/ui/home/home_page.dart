@@ -17,17 +17,14 @@ class _HomePageState extends State<HomePage> {
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = FeedPage();
 
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      extendBody: true,
+      backgroundColor: Colors.transparent,
       resizeToAvoidBottomInset: false,
       body: PageStorage(bucket: bucket, child: currentScreen),
       floatingActionButton: FloatingActionButton(
-
         child: const Icon(Icons.add),
         backgroundColor: Colors.green,
         onPressed: () {
@@ -39,9 +36,8 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
-          color: Colors.white,
           shape: const CircularNotchedRectangle(),
-          notchMargin: 10,
+          notchMargin: 12,
           child: SizedBox(
               height: 60,
               child: Row(
@@ -53,7 +49,11 @@ class _HomePageState extends State<HomePage> {
                         Container(
                           decoration: BoxDecoration(
                             border: Border(
-                              top: BorderSide(width:currentTab == 0? 2.0:0.0, color:currentTab == 0? Colors.green:Colors.transparent),
+                              top: BorderSide(
+                                  width: currentTab == 0 ? 2.0 : 0.0,
+                                  color: currentTab == 0
+                                      ? Colors.green
+                                      : Colors.transparent),
                             ),
                           ),
                           margin: EdgeInsets.symmetric(horizontal: 10),
@@ -68,12 +68,17 @@ class _HomePageState extends State<HomePage> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Icon(
-                                  Icons.dashboard,
-                                  color: currentTab == 0
-                                      ? Colors.green
-                                      : Colors.grey,
-                                )
+                                currentTab == 0
+                                    ? Image.asset(
+                                        'images/menu_home_green.png',
+                                        width: 25,
+                                        height: 25,
+                                      )
+                                    : Image.asset(
+                                        'images/menu_home_icon.png',
+                                        width: 25,
+                                        height: 25,
+                                      )
                               ],
                             ),
                           ),
@@ -81,7 +86,11 @@ class _HomePageState extends State<HomePage> {
                         Container(
                           decoration: BoxDecoration(
                             border: Border(
-                              top: BorderSide(width:currentTab == 1? 2.0:0.0, color:currentTab == 1? Colors.green:Colors.transparent),
+                              top: BorderSide(
+                                  width: currentTab == 1 ? 2.0 : 0.0,
+                                  color: currentTab == 1
+                                      ? Colors.green
+                                      : Colors.transparent),
                             ),
                           ),
                           margin: EdgeInsets.symmetric(horizontal: 10),
@@ -89,19 +98,24 @@ class _HomePageState extends State<HomePage> {
                             minWidth: 50,
                             onPressed: () {
                               setState(() {
-                                currentScreen = ChatPage();
+                                currentScreen = MyAdPage();
                                 currentTab = 1;
                               });
                             },
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Icon(
-                                  Icons.chat,
-                                  color: currentTab == 1
-                                      ? Colors.green
-                                      : Colors.grey,
-                                )
+                                currentTab == 1
+                                    ? Image.asset(
+                                        'images/menu_speaker_green.png',
+                                        width: 25,
+                                        height: 25,
+                                      )
+                                    : Image.asset(
+                                        'images/menu_speaker_icon.png',
+                                        width: 25,
+                                        height: 25,
+                                      )
                               ],
                             ),
                           ),
@@ -114,7 +128,11 @@ class _HomePageState extends State<HomePage> {
                         Container(
                           decoration: BoxDecoration(
                             border: Border(
-                              top: BorderSide(width:currentTab == 2? 2.0:0.0, color:currentTab == 2? Colors.green:Colors.transparent),
+                              top: BorderSide(
+                                  width: currentTab == 2 ? 2.0 : 0.0,
+                                  color: currentTab == 2
+                                      ? Colors.green
+                                      : Colors.transparent),
                             ),
                           ),
                           margin: EdgeInsets.symmetric(horizontal: 10),
@@ -122,19 +140,24 @@ class _HomePageState extends State<HomePage> {
                             minWidth: 50,
                             onPressed: () {
                               setState(() {
-                                currentScreen = MyAdPage();
+                                currentScreen = ChatPage();
                                 currentTab = 2;
                               });
                             },
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Icon(
-                                  Icons.dashboard,
-                                  color: currentTab == 2
-                                      ? Colors.green
-                                      : Colors.grey,
-                                )
+                                currentTab == 2
+                                    ? Image.asset(
+                                        'images/menu_chat_green_icon.png',
+                                        width: 25,
+                                        height: 25,
+                                      )
+                                    : Image.asset(
+                                        'images/menu_chat_icon.png',
+                                        width: 25,
+                                        height: 25,
+                                      )
                               ],
                             ),
                           ),
@@ -143,7 +166,11 @@ class _HomePageState extends State<HomePage> {
                           margin: EdgeInsets.symmetric(horizontal: 10),
                           decoration: BoxDecoration(
                             border: Border(
-                              top: BorderSide(width:currentTab == 3? 2.0:0.0, color:currentTab == 3? Colors.green:Colors.transparent),
+                              top: BorderSide(
+                                  width: currentTab == 3 ? 2.0 : 0.0,
+                                  color: currentTab == 3
+                                      ? Colors.green
+                                      : Colors.transparent),
                             ),
                           ),
                           child: MaterialButton(
@@ -157,12 +184,17 @@ class _HomePageState extends State<HomePage> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Icon(
-                                  Icons.person,
-                                  color: currentTab == 3
-                                      ? Colors.green
-                                      : Colors.grey,
-                                )
+                                currentTab == 3
+                                    ? Image.asset(
+                                        'images/menu_user_green.png',
+                                        width: 25,
+                                        height: 25,
+                                      )
+                                    : Image.asset(
+                                        'images/menu_user_icon.png',
+                                        width: 25,
+                                        height: 25,
+                                      )
                               ],
                             ),
                           ),

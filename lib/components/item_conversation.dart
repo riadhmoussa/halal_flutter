@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:halal_flutter/ui/home/chat/conversation_page.dart';
 
 class ItemConversation extends StatefulWidget {
   const ItemConversation({Key? key}) : super(key: key);
@@ -16,12 +17,15 @@ class _ItemConversationState extends State<ItemConversation> {
           alignment: Alignment.bottomCenter,
           height: 80,
           child: Material(
-            elevation:10 ,
+            elevation: 10,
             clipBehavior: Clip.antiAlias,
             borderRadius: BorderRadius.all(Radius.circular(10)),
             child: Container(
               height: 80,
-              width: MediaQuery.of(context).size.width*0.85,
+              width: MediaQuery
+                  .of(context)
+                  .size
+                  .width * 0.85,
 
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -35,7 +39,8 @@ class _ItemConversationState extends State<ItemConversation> {
                         height: 50,
                         child: CircleAvatar(
                             radius: 20,
-                            backgroundImage: new AssetImage('images/person.png')),
+                            backgroundImage: new AssetImage(
+                                'images/person.png')),
                       ),
                       Expanded(
                         child: Column(
@@ -49,13 +54,14 @@ class _ItemConversationState extends State<ItemConversation> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Container(
-                                  margin: EdgeInsets.only(top:25),
+                                  margin: EdgeInsets.only(top: 25),
                                   child: Text(
                                     "Moussa Riadh",
                                     textDirection: TextDirection.ltr,
                                     textAlign: TextAlign.right,
                                     style: TextStyle(
-                                        fontWeight: FontWeight.bold, fontSize: 12),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 12),
                                   ),
                                 ),
                                 Text(
@@ -73,7 +79,10 @@ class _ItemConversationState extends State<ItemConversation> {
                               textBaseline: TextBaseline.alphabetic,
                               textDirection: TextDirection.ltr,
                               mainAxisSize: MainAxisSize.max,
-                              children: [Text('Hello World !!!',style: TextStyle(fontSize: 12),)],
+                              children: [
+                                Text('Hello World !!!',
+                                  style: TextStyle(fontSize: 12),)
+                              ],
                             ),
                           ],
                         ),
@@ -85,7 +94,14 @@ class _ItemConversationState extends State<ItemConversation> {
 
             ),
           )),
-      onTap: (){},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) =>
+                  ConversationPage()),
+        );
+      },
     );
   }
 }

@@ -43,7 +43,7 @@ class _SplashPageState extends State<SplashPage> {
         child: Container(
           child: Center(
               child: Image.asset('images/icon.png',
-                  width: 200, height: 130, fit: BoxFit.fill)),
+                  width: 130, height: 80, fit: BoxFit.fill)),
         ),
       ),
     );

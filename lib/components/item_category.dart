@@ -19,7 +19,7 @@ class _ItemCategoryState extends State<ItemCategory> {
         child: Material(
           elevation:5 ,
           clipBehavior: Clip.antiAlias,
-          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderRadius: BorderRadius.all(Radius.circular(5)),
           child: Container(
             color:widget.selected? Colors.green:Colors.white,
             height: 35,
