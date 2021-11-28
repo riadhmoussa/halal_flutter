@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:halal_flutter/components/button_submit.dart';
 
 class AddCommentDialog extends StatefulWidget {
-  final String title  ;
+  final String title;
+  final bool showStarts;
 
-
-  const AddCommentDialog({Key? key, this.title="", }) : super(key: key);
+  const AddCommentDialog({Key? key, this.title="", this.showStarts=false}) : super(key: key);
 
   @override
   _AddCommentDialogState createState() => _AddCommentDialogState();
@@ -61,14 +61,44 @@ class _AddCommentDialogState extends State<AddCommentDialog> {
                   ),
                 ),
                 Container(
+                 margin: EdgeInsets.only(left: 50),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.star,
+                        color: Colors.yellow[800],
+                        size: 30,
+                      ),
+                      Icon(
+                        Icons.star,
+                        color: Colors.yellow[800],
+                        size: 30,
+                      ),
+                      Icon(
+                        Icons.star,
+                        color: Colors.yellow[800],
+                        size: 30,
+                      ),
+                      const Icon(
+                        Icons.star,
+                        color: Colors.grey,
+                        size: 30,
+                      ),
+                      const Icon(
+                        Icons.star,
+                        color: Colors.grey,
+                        size: 30,
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
                   margin: EdgeInsets.all(10),
+                  height: 100,
                   child: TextField(
-                      textInputAction: TextInputAction.newline,
-                      keyboardType: TextInputType.multiline,
-                      minLines: null,
-                      maxLines: null,  // If this is null, there is no limit to the number of lines, and the text container will start with enough vertical space for one line and automatically grow to accommodate additional lines as they are entered.
                       expands: true,
-
+                      minLines: null,
+                      maxLines: null,
 
                       style: TextStyle(
                           fontSize: 12.0,

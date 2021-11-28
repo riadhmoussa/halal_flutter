@@ -8,7 +8,7 @@ import 'package:halal_flutter/helper/shared_preferences.dart';
 import 'package:halal_flutter/models/user.dart';
 import 'package:halal_flutter/ui/home/profile/banksAccountPage.dart';
 import 'package:halal_flutter/ui/home/profile/contact_us_page.dart';
-import 'package:halal_flutter/ui/home/profile/followers_list_page.dart';
+import 'package:halal_flutter/ui/user/followers_list_page.dart';
 import 'package:halal_flutter/ui/home/profile/terms_condition_page.dart';
 
 import 'claims_page.dart';

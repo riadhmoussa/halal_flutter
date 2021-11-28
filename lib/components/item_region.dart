@@ -20,7 +20,7 @@ class _ItemRegionState extends State<ItemRegion> {
             margin: EdgeInsets.fromLTRB(25, 15,0, 15),
             child: Text("Makkah",style: TextStyle(fontWeight: FontWeight.bold),),
           ),
-          Divider(height: 3,color: Colors.black,)
+          Divider(height: 3,color: Colors.grey,)
         ],
       ),
     );

@@ -31,7 +31,7 @@ class _InputFieldState extends State<InputField> {
         Material(
           elevation:10 ,
           clipBehavior: Clip.antiAlias,
-          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderRadius: BorderRadius.all(Radius.circular(5)),
           child: Container(
             height: 50,
             margin: EdgeInsets.only(left: 10),
