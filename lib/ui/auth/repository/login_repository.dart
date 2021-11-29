@@ -1,5 +1,6 @@
 import 'package:halal_flutter/common/constants.dart';
 import 'package:halal_flutter/common/toasts/custom_toast.dart';
+import 'package:halal_flutter/helper/loader_tools.dart';
 import 'package:halal_flutter/helper/requests_interceptor.dart';
 import 'package:halal_flutter/models/response.dart';
 import 'dart:collection';
@@ -47,15 +48,11 @@ class WebserviceAuth {
       'firstName': firstName,
       "lastName":lastName
     });
-    print("Tttttttttttttttttttt");
-    print(body);
     return DioRequestsInterceptor
         .dio
         .post("http://halal-api.wi-mobi.dev/api/auth/signup",data: body)
         .then((value)  {
-          print("Mouusa Test");
-          print(Response.fromJson(value.data).message);
-          print(Response.fromJson(value.data).success);
+
         return (Response.fromJson(value.data));
     });
   }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 
-enum ToastTypes {
+/*enum ToastTypes {
   success,
   warning,
   error,
@@ -99,4 +99,4 @@ Future<void> showCustomToast({
   await duration.delay();
   await Future.delayed(const Duration(milliseconds: 300));
   return;
-}
+}*/

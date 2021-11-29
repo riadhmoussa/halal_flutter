@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:halal_flutter/common/dialog/custom_alert_dialog.dart';
 import 'package:halal_flutter/components/textview.dart';
+import 'package:halal_flutter/helper/loader_tools.dart';
 import 'package:halal_flutter/helper/shared_preferences.dart';
 import 'package:halal_flutter/models/user.dart';
 import 'package:halal_flutter/ui/auth/viewmodel/login_view_model.dart';
@@ -94,9 +95,11 @@ class _VerificationPhoneNumberState extends State<VerificationPhoneNumber> {
               underlineWidth: 2,
               length: 4,
               onCompleted: (String value) {
+                DialogHelper.showLoading();
                 loginViewModel
                     .fetchVerifyPhone(widget.phoneNumber, value)
                     .then((value) async => {
+                DialogHelper.hideLoading(),
                           if (loginViewModel.response!.success == true)
                             {
                               pref = await SharedPreferences(),

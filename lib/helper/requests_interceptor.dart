@@ -118,18 +118,20 @@ class DioRequestsInterceptor {
       if (error.response != null &&
           error.response!.data != null &&
           error.response!.data["message"] != null) {
-        showCustomToast(
+       /* showCustomToast(
           duration: 3,
           toastType: ToastTypes.error,
           contentText: error.response!.data["message"],
           onTheTop: false,
-        );
-      } else
-        showCustomToast(
+        );*/
+      } else{
+
+      }
+       /* showCustomToast(
           toastType: ToastTypes.error,
           contentText: "Une erreur est survenue",
           onTheTop: false,
-        );
+        );*/
     }
   }
 }

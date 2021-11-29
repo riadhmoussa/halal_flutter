@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:halal_flutter/components/button_submit.dart';
 import 'package:halal_flutter/components/phone_number_input.dart';
+import 'package:halal_flutter/helper/loader_tools.dart';
 import 'package:halal_flutter/ui/auth/viewmodel/login_view_model.dart';
 import 'package:halal_flutter/ui/auth/views/verification_phone_number.dart';
+import 'package:get/get.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -44,37 +46,47 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   PhoneNumberInput(
                       onChanged: (text) => {
-                        if (text.number != null)
-                          {
-                            setState(() => phoneNumber = text.number!),
-                            if (text.number!.length == 9)
-                              {setState(() => this.validPhonenumber = true)}
-                            else
-                              {setState(() => this.validPhonenumber = false)}
-                          }
-                      }),
+                            if (text.number != null)
+                              {
+                                setState(() => phoneNumber = text.number!),
+                                if (text.number!.length == 9)
+                                  {setState(() => this.validPhonenumber = true)}
+                                else
+                                  {
+                                    setState(
+                                        () => this.validPhonenumber = false)
+                                  }
+                              }
+                          }),
                   ButtonSubmit(
                       enabled: validPhonenumber,
                       nameButton: "Sign In",
                       onPressed: () => {
-                        loginViewModel
-                            .fetchCheckPhone("+966" + phoneNumber)
-                            .then((value) => {
-                          if (loginViewModel.response!.success == true)
-                            {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        VerificationPhoneNumber(phoneNumber: "+966" + phoneNumber)),
-                              )
-                            }
-                          else
-                            {}
-                        }),
-                      })
+                       DialogHelper.showLoading(),
+                            loginViewModel
+                                .fetchCheckPhone("+966" + phoneNumber)
+                                .then((value) => {
+                                    DialogHelper.hideLoading(),
+                                      if (loginViewModel.response!.success ==
+                                          true)
+                                        {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    VerificationPhoneNumber(
+                                                        phoneNumber: "+966" +
+                                                            phoneNumber)),
+                                          )
+                                        }
+                                      else
+                                        {}
+                                    }),
+                          })
                 ]),
           ),
         ));
   }
+
+
 }
